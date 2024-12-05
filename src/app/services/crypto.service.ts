@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class CryptoService {
   // Actualiza esta URL con la URL de tu backend desplegado en Vercel
-  private baseUrl = 'https://aes-backend-seven.vercel.app/api/crypto'; 
+  private baseUrl = 'https://aes-backend-2qer.onrender.com/api/crypto'; 
 
   constructor(private http: HttpClient) {}
 

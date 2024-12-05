@@ -9,7 +9,7 @@ import { catchError } from 'rxjs/operators'; // Importar catchError para manejar
 })
 export class AuthService {
   private isLogged = false;
-  private baseUrl = 'https://aes-backend-seven.vercel.app/api/auth'; // Asegúrate de agregar el https://
+  private baseUrl = 'https://aes-backend-2qer.onrender.com/api/auth'; // Asegúrate de agregar el https://
 
   constructor(private http: HttpClient, private router: Router) {}
 
