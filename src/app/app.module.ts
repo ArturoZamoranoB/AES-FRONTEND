@@ -21,7 +21,7 @@ import { WelcomeComponent } from './auth/welcome/welcome/welcome.component';
     RegisterComponent,
     EncryptComponent,
     DecryptComponent,
-    WelcomeComponent, 
+    WelcomeComponent
   ],
   imports: [
     BrowserModule,  
