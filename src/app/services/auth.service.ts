@@ -15,7 +15,7 @@ export class AuthService {
 
   // Verificar si el usuario está autenticado
   isLoggedIn(): boolean {
-    const token = localStorage.getItem('token');
+    const token = sessionStorage.getItem('token');
     return !!token; // Si existe el token, devuelve true
   }
 
@@ -41,18 +41,18 @@ export class AuthService {
 
   // Cerrar sesión
   logout(): void {
-    localStorage.removeItem('token'); // Eliminar token del almacenamiento
+    sessionStorage.removeItem('token'); // Eliminar token del almacenamiento
     this.router.navigate(['/login']); // Redirigir a login
   }
 
   // Método para guardar el token en localStorage
   setToken(token: string): void {
-    localStorage.setItem('token', token);
+    sessionStorage.setItem('token', token);
     this.isLogged = true;
   }
 
   // Método para obtener el token
   getToken(): string | null {
-    return localStorage.getItem('token');
+    return sessionStorage.getItem('token');
   }
 }
