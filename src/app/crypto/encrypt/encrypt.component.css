@@ -1,0 +1,143 @@
+/* General Styling */
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #2c2c54, #0fbcf9);
+  font-family: 'Roboto', sans-serif;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  padding: 20px;
+  gap: 20px;
+  
+}
+
+.logout-button {
+  position: absolute;
+  bottom: 20px; /* Lo coloca 20px desde la parte inferior de su contenedor */
+  left: 50%;    /* Lo centra horizontalmente dentro del contenedor */
+  transform: translateX(-50%); /* Asegura que el botón esté completamente centrado */
+  font-size: 1rem;
+  background-color: #ff3d00;
+  color: white;
+  border: none;
+  border-radius: 50px;
+  padding: 10px 25px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.logout-button:hover {
+  background-color: #dd2c00;
+  transform: scale(1.1) translateX(-50%); /* Asegura que el botón sigue centrado al hacer hover */
+}
+
+
+/* Containers */
+.intro-container, .encryption-container {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 25px;
+  width: 100%;
+  max-width: 600px;
+  border-radius: 15px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  text-align: center;
+}
+
+/* Titles */
+.title {
+  color: #fff;
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.input-container {
+  margin-bottom: 20px;
+  width: 100%;
+  box-sizing: border-box; /* Asegura que el padding no afecte el tamaño total */
+}
+
+.input-textarea {
+  width: 100%; /* Ocupa todo el ancho disponible */
+  max-width: 100%; /* Evita que se salga del contenedor */
+  padding: 15px;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  resize: none;
+  background-color: rgba(0, 0, 0, 0.2);
+  color: #fff;
+  outline: none;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  box-sizing: border-box; /* Asegura que padding y border no afecten el ancho */
+}
+
+.input-textarea:focus {
+  border: 1px solid #1e90ff;
+  box-shadow: 0 0 10px rgba(30, 144, 255, 0.5);
+}
+/* Buttons Group */
+.button-group {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.action-button {
+  font-size: 1rem;
+  padding: 10px 20px;
+  border-radius: 30px;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s, background-color 0.3s;
+}
+
+.encrypt-button {
+  background-color: #1dd1a1;
+  color: white;
+}
+
+.decrypt-button {
+  background-color: #ee5253;
+  color: white;
+}
+
+.action-button:hover {
+  transform: scale(1.05);
+}
+
+.action-button:disabled {
+  background-color: #576574;
+  cursor: not-allowed;
+}
+
+/* Result Container */
+.result-container {
+  margin-top: 20px;
+  padding: 15px;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  color: #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+.intro-text {
+  font-size: 1rem;
+  color: #ffffff; /* Cambia el color del texto a blanco */
+  /* background: #282828; */
+  padding: 15px;
+  border-radius: 6px;
+  margin-top: 10px;
+  text-align: center;
+  /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); */
+}

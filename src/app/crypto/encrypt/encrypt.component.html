@@ -1,0 +1,48 @@
+<body>
+  <div class="container">
+    <div class="intro-container">
+      <h2 class="title">AES-256-CBC</h2>
+      <p class="intro-text">AES-256-CBC es un algoritmo de cifrado simétrico que convierte un texto en un formato ilegible (texto encriptado) usando una clave secreta de 256 bits. En este proceso, también se genera un IV (vector de inicialización) único que se utiliza para garantizar que cada encriptación sea diferente, incluso si el texto original es el mismo. El resultado de la encriptación es el texto cifrado y el IV utilizado en el proceso.</p>
+    </div>
+
+    <div class="encryption-container">
+      <h2 class="title">Encriptado de texto</h2>
+
+      <!-- Campo de entrada para texto -->
+      <div class="input-container">
+        <textarea
+          [(ngModel)]="plaintext"
+          placeholder="Escribe el texto a encriptar"
+          rows="5"
+          class="input-textarea"
+        ></textarea>
+      </div>
+
+      <!-- Botones -->
+      <div class="button-group">
+        <button
+          (click)="encrypt()"
+          [disabled]="!plaintext || plaintext.trim() === ''"
+          class="action-button encrypt-button"
+        >
+          Encriptar
+        </button>
+        <button
+          (click)="GoToDecrypt()"
+          class="action-button decrypt-button"
+        >
+          Ir a Desencriptar
+        </button>
+      </div>
+
+      <!-- Mostrar resultado -->
+      <p *ngIf="textcifrado" class="result-container">
+        <strong>Texto encriptado:</strong> {{ textcifrado }}
+        <br />
+        <strong>IV:</strong> {{ Iv }}
+      </p>
+    </div>
+
+    <!-- Botón de Cerrar sesión -->
+  </div>
+</body>

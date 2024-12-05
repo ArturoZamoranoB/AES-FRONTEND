@@ -1,0 +1,20 @@
+<body>
+  <div class="container">
+    <button class="logout-button" (click)="goTologout()">Salir</button>
+
+    <div class="welcome-container">
+      <h2 class="title">Bienvenido al Sistema de Ciberseguridad</h2>
+      <p class="welcome-text">
+        Este proyecto final fue desarrollado como parte de la materia de <strong>Ciberseguridad</strong> y utiliza el algoritmo de encriptación simétrica <strong>AES-256-CBC</strong>. 
+        La implementación de este sistema de encriptación y desencriptación fue realizada por José Valenzuela y Arturo Zamorano. Su objetivo principal es asegurar la confidencialidad de los datos sensibles, protegiendo la información mediante una clave secreta de 256 bits y un vector de inicialización único para cada operación.
+      </p>
+      <p class="welcome-text">
+        <strong>AES-256-CBC</strong> es ampliamente utilizado en la industria para asegurar la integridad y confidencialidad de los datos, siendo fundamental en el campo de la criptografía moderna y los sistemas de ciberseguridad. A través de este sistema, podrás cifrar y descifrar textos, lo que te permitirá experimentar con las capacidades de protección de datos en un entorno seguro.
+      </p>
+    </div>
+
+    <div class="button-group">
+      <button class="action-button go-to-encrypt" (click)="goToEncrypt()">Ir al Encriptador</button>
+    </div>
+  </div>
+</body>

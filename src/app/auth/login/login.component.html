@@ -1,0 +1,78 @@
+<div class="login-container">
+  <div class="login-wrapper">
+    <div class="login-card">
+      <div class="login-header">
+        <div class="logo-container">
+          <div class="shield-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+            </svg>
+          </div>
+          <h2>Cyber Seguridad</h2>
+        </div>
+        <p>Acceso Seguro al Sistema</p>
+      </div>
+      
+      <form (ngSubmit)="login()" #loginForm="ngForm">
+        <div class="input-group">
+          <label for="username">Usuario</label>
+          <div class="input-wrapper">
+            <i class="icon-user"></i>
+            <input
+              id="username"
+              [(ngModel)]="username"
+              name="username"
+              type="text"
+              required
+              placeholder="Ingrese su identificador"
+              #usernameInput="ngModel"
+              [ngClass]="{'input-error': usernameInput.invalid && usernameInput.touched}"
+            />
+          </div>
+          <div class="error-message" *ngIf="usernameInput.invalid && usernameInput.touched">
+            Usuario es obligatorio
+          </div>
+        </div>
+
+        <div class="input-group">
+          <label for="password">Contraseña</label>
+          <div class="input-wrapper">
+            <i class="icon-lock"></i>
+            <input
+              id="password"
+              [(ngModel)]="password"
+              name="password"
+              type="password"
+              required
+              placeholder="Ingrese su contraseña"
+              #passwordInput="ngModel"
+              [ngClass]="{'input-error': passwordInput.invalid && passwordInput.touched}"
+            />
+            <span class="password-toggle">
+              <i class="icon-eye"></i>
+            </span>
+          </div>
+          <div class="error-message" *ngIf="passwordInput.invalid && passwordInput.touched">
+            Contraseña es obligatoria
+          </div>
+        </div>
+
+        <div class="global-error" *ngIf="errorMessage">
+          {{ errorMessage }}
+        </div>
+
+        <button 
+          type="submit" 
+          class="login-button" 
+          [disabled]="loginForm.invalid"
+        >
+          Iniciar Sesión
+        </button>
+
+        <div class="login-footer">
+          <a class="register-link" (click)="goToRegister()">Registrarse</a>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

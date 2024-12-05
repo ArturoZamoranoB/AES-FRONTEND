@@ -1,0 +1,60 @@
+<body>
+  <div class="container">
+    <div class="intro-container">
+      <h2 class="title">AES-256-CBC</h2>
+      <p class="intro-text">AES-256-CBC es un algoritmo de cifrado simétrico que convierte un texto en un formato ilegible (texto encriptado) usando una clave secreta de 256 bits. Para desencriptar, se utiliza la misma clave secreta y el IV (vector de inicialización) correcto. Ingresa el texto encriptado y el IV para obtener el texto original.</p>
+    </div>
+
+    <div class="decryption-container">
+      <h2 class="title">Desencriptar texto</h2>
+
+      <!-- Campo de texto encriptado -->
+      <div class="input-container">
+        <textarea
+          [(ngModel)]="encrypted"
+          placeholder="Escribe el texto encriptado"
+          rows="5"
+          class="input-textarea"
+        ></textarea>
+      </div>
+
+      <!-- Campo de IV -->
+      <div class="input-container">
+        <input
+          [(ngModel)]="iv"
+          type="text"
+          placeholder="Ingresa el IV"
+          class="input-textarea"
+        />
+      </div>
+
+      <!-- Botones -->
+      <div class="button-group">
+        <button
+          (click)="decrypt()"
+          [disabled]="!encrypted || !iv || encrypted.trim() === '' || iv.trim() === ''"
+          class="action-button decrypt-button"
+        >
+          Desencriptar
+        </button>
+        <button
+          (click)="GoToEncrypt()"
+          class="action-button encrypt-button"
+        >
+          Regresar a Encriptar
+        </button>
+      </div>
+
+      <!-- Resultado -->
+      <p *ngIf="result" class="result-container">
+        <strong>Texto desencriptado:</strong> {{ result }}
+      </p>
+
+      <!-- Mensaje de error -->
+      <p *ngIf="errorMessage" class="error-message">{{ errorMessage }}</p>
+    </div>
+  </div>
+
+  <!-- Botón Cerrar sesión -->
+  <button class="logout-button" (click)="logout()">Cerrar sesión</button>
+</body>
