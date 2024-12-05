@@ -1,37 +1,59 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { Router } from '@angular/router'; // Importa Router para redirigir
+import { Observable, of } from 'rxjs';
+import { Router } from '@angular/router';
+import { catchError } from 'rxjs/operators'; // Importar catchError para manejar errores
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
-  private isLogged = false; // Estado interno de autenticación
-  private baseUrl = 'http://localhost:8080/api/auth'; // Base URL del backend
+  private isLogged = false;
+  private baseUrl = 'https://aes-backend-seven.vercel.app/api/auth'; // Asegúrate de agregar el https://
 
-  constructor(private http: HttpClient,private router: Router) {}
+  constructor(private http: HttpClient, private router: Router) {}
 
-  // Método para verificar si el usuario está autenticado (basado en el token)
+  // Verificar si el usuario está autenticado
   isLoggedIn(): boolean {
     const token = localStorage.getItem('token');
-    return !!token; // Devuelve true si el token existe
+    return !!token; // Si existe el token, devuelve true
   }
 
-  // Método para iniciar sesión (POST al backend)
+  // Iniciar sesión
   login(username: string, password: string): Observable<any> {
-    return this.http.post(`${this.baseUrl}/login`, { username, password });
+    return this.http.post(`${this.baseUrl}/login`, { username, password }).pipe(
+      catchError((error) => {
+        console.error('Error en el login:', error);
+        return of(null); // Retorna null si hay un error
+      })
+    );
   }
 
-  // Método para registrar un nuevo usuario (POST al backend)
+  // Registrar un nuevo usuario
   register(username: string, password: string): Observable<any> {
-    return this.http.post(`${this.baseUrl}/register`, { username, password });
+    return this.http.post(`${this.baseUrl}/register`, { username, password }).pipe(
+      catchError((error) => {
+        console.error('Error en el registro:', error);
+        return of(null); // Retorna null si hay un error
+      })
+    );
   }
 
-  // Método para cerrar sesión (remover token y cambiar estado)
+  // Cerrar sesión
   logout(): void {
-    localStorage.removeItem('token'); // Eliminar el token del almacenamiento local
-    this.isLogged = false; // Cambiar el estado interno
-    this.router.navigate(['/login']); // Redirigir a la página de login
+    localStorage.removeItem('token'); // Eliminar token del almacenamiento
+    this.isLogged = false; // Cambiar estado de autenticación
+    this.router.navigate(['/login']); // Redirigir a login
+  }
+
+  // Método para guardar el token en localStorage
+  setToken(token: string): void {
+    localStorage.setItem('token', token);
+    this.isLogged = true;
+  }
+
+  // Método para obtener el token
+  getToken(): string | null {
+    return localStorage.getItem('token');
   }
 }

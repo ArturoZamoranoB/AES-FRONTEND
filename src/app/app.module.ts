@@ -34,7 +34,7 @@ import { WelcomeComponent } from './auth/welcome/welcome/welcome.component';
       { path: '', redirectTo: '/login', pathMatch: 'full' },
       { path: 'login', component: LoginComponent },
       { path: 'register', component: RegisterComponent },
-      { path: 'encrypt', component: EncryptComponent, canActivate: [authGuard] },
+      { path: 'encrypt', component: EncryptComponent, canActivate: [authGuard]},
       { path: 'decrypt', component: DecryptComponent, canActivate: [authGuard]},
       {path: 'welcome', component: WelcomeComponent, canActivate: [authGuard]}
     ]),
