@@ -12,7 +12,6 @@ import { EncryptComponent } from './crypto/encrypt/encrypt.component';
 import { DecryptComponent } from './crypto/decrypt/decrypt.component';
 import { InputTextareaModule } from 'primeng/inputtextarea';
 import { authGuard } from '../guard/auth.guard';
-import { AuthService } from './services/auth.service';
 import { WelcomeComponent } from './auth/welcome/welcome/welcome.component';
 
 @NgModule({
@@ -22,6 +21,7 @@ import { WelcomeComponent } from './auth/welcome/welcome/welcome.component';
     RegisterComponent,
     EncryptComponent,
     DecryptComponent,
+    WelcomeComponent, 
   ],
   imports: [
     BrowserModule,  
@@ -36,7 +36,7 @@ import { WelcomeComponent } from './auth/welcome/welcome/welcome.component';
       { path: 'register', component: RegisterComponent },
       { path: 'encrypt', component: EncryptComponent, canActivate: [authGuard]},
       { path: 'decrypt', component: DecryptComponent, canActivate: [authGuard]},
-      {path: 'welcome', component: WelcomeComponent, canActivate: [authGuard]}
+      {path: 'welcome', component: WelcomeComponent, canActivate:  [authGuard]}
     ]),
   ],
   providers: [],

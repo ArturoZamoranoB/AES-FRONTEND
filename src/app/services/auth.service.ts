@@ -42,7 +42,6 @@ export class AuthService {
   // Cerrar sesión
   logout(): void {
     localStorage.removeItem('token'); // Eliminar token del almacenamiento
-    this.isLogged = false; // Cambiar estado de autenticación
     this.router.navigate(['/login']); // Redirigir a login
   }
 

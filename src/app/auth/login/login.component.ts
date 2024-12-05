@@ -25,7 +25,7 @@ export class LoginComponent {
     this.authService.login(this.username, this.password).subscribe({
       next: (res) => {
         // Almacena el token en el almacenamiento local
-        localStorage.setItem('token', res.token);
+        sessionStorage.setItem('token', res.token)
   
         // Redirige al usuario a la página de bienvenida después de iniciar sesión correctamente
         this.router.navigate(['/welcome']);
