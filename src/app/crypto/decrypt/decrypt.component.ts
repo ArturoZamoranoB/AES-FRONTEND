@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { CryptoService } from '../../services/crypto.service';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-decrypt',
@@ -12,7 +13,7 @@ export class DecryptComponent {
   result = '';      // Resultado del texto desencriptado
   errorMessage = ''; // Mensaje de error
 
-  constructor(private cryptoService: CryptoService) {}
+  constructor(private cryptoService: CryptoService,private authService: AuthService) {}
 
   decrypt() {
     // Llamada al servicio de desencriptación
@@ -35,14 +36,11 @@ export class DecryptComponent {
     // Redirige a la página de encriptación
     window.location.href = '/encrypt';
   }
-  logout() {
-    // Reemplaza el historial actual, evitando que el usuario regrese a la página anterior
-    window.history.replaceState(null, '', '/login');
-  
-    // Redirige a la página de login
-    window.location.href = '/login';
-    window.location.replace('/login');
 
+logout() {
+    this.authService.logout(); // Llama al método logout para eliminar el token
+    window.location.href = '/login'; // Redirige a la página de login
   }
+
   
 }
